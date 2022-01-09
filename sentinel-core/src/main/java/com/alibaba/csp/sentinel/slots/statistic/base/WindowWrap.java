@@ -24,16 +24,19 @@ package com.alibaba.csp.sentinel.slots.statistic.base;
  */
 public class WindowWrap<T> {
 
+    // 窗口时间长度(毫秒)
     /**
      * Time length of a single window bucket in milliseconds.
      */
     private final long windowLengthInMs;
 
+    // 开始时间戳(毫秒)
     /**
      * Start timestamp of the window in milliseconds.
      */
     private long windowStart;
 
+    // 统计数据，实际上是MetricBucket
     /**
      * Statistic data.
      */
@@ -85,6 +88,7 @@ public class WindowWrap<T> {
      * @since 1.5.0
      */
     public boolean isTimeInWindow(long timeMillis) {
+        // 检查给定的时间戳是否在当前 bucket 中
         return windowStart <= timeMillis && timeMillis < windowStart + windowLengthInMs;
     }
 
