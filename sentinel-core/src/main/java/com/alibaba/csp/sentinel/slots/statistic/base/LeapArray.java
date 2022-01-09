@@ -119,6 +119,10 @@ public abstract class LeapArray<T> {
     }
 
     /**
+     * 通过时间戳定位 Bucket 当接收到一个请求时，可根据接收到请求的时间戳计算出一个数组索引，
+     * 从滑动窗口（WindowWrap 数组）中获取一个 WindowWrap，从而获取 WindowWrap 包装的 Bucket，
+     * 调用 Bucket 的 add 方法记录相应的事件。
+     *
      * Get bucket item at provided timestamp.
      *
      * @param timeMillis a valid timestamp in milliseconds
